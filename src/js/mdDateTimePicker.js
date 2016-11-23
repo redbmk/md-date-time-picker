@@ -841,7 +841,7 @@ class mdDateTimePicker {
 				setTimeout(function () {
 					let hOffset = circularHolder.getBoundingClientRect()
 					let cOffset = circle.getBoundingClientRect()
-					fakeNeedle.setAttribute('style', 'left:' + (cOffset.left - hOffset.left) + 'px;top:' + (cOffset.top - hOffset.top) + 'px')
+					fakeNeedle.setAttribute('style', 'transform: translate3d(' + (cOffset.left - hOffset.left) + 'px, ' + (cOffset.top - hOffset.top) + 'px, 0)')
 				}, 300)
 			}
 		}
@@ -1257,7 +1257,7 @@ class mdDateTimePicker {
 			let sMinute = 'mddtp-minute__selected'
 			let selectedMinute = document.getElementById(sMinute)
 			let cOffset = circle.getBoundingClientRect()
-			fakeNeedle.setAttribute('style', 'left:' + (cOffset.left - hOffset.left) + 'px;top:' + (cOffset.top - hOffset.top) + 'px')
+			fakeNeedle.setAttribute('style', 'transform: translate3d(' + (cOffset.left - hOffset.left) + 'px, ' + (cOffset.top - hOffset.top) + 'px, 0)')
 			needle.classList.remove(quick)
 			let select = divides
 			if (select === 1) {

@@ -284,8 +284,6 @@
   .mddtp-picker__cell {
     position: absolute;
     width: 50%;
-    top: calc(50% - 18px);
-    left: 50%;
     text-align: right;
     transform-origin: left center;
     span {
@@ -330,11 +328,10 @@
 
 .mddtp-picker__selection {
   position: absolute;
-  left: 50%;
-  top: calc(50% - 18px);
-  width: 50%;
+  transform: translate3d(121px, 107px, 0);
+  width: 129px;
   font-size: 0;
-  transform-origin: left center;
+  transform-origin: 4px center;
   transition: .3s cubic-bezier(.42, 0, .58, 1);
 
   span {
@@ -403,11 +400,16 @@
 //60 minute deg rotations
 @for $i from 1 through 120 {
   .mddtp-picker__cell--rotate-#{$i} {
-    transform: rotate(#{(360 / 120) * $i - 90}deg);
+    $rotation: 360 / 120 * $i - 90;
+
+    transform: translate3d(125px, 107px, 0) rotate(#{$rotation}deg);
+
+    &.mddtp-picker__selection {
+      transform: translate3d(121px, 107px, 0) rotate(#{$rotation}deg);
+    }
 
     span:not(.mddtp-picker__line) {
-      $reverse: -((360 / 120) * $i - 90);
-      transform: rotate(#{$reverse}deg);
+      transform: rotate(#{-$rotation}deg);
     }
   }
 }

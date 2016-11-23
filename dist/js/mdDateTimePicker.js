@@ -817,7 +817,7 @@
 							var hOffset = circularHolder.getBoundingClientRect(),
 							    cOffset = circle.getBoundingClientRect();
 
-							fakeNeedle.setAttribute('style', 'left:' + (cOffset.left - hOffset.left) + 'px;top:' + (cOffset.top - hOffset.top) + 'px');
+							fakeNeedle.setAttribute('style', 'transform: translate3d(' + (cOffset.left - hOffset.left) + 'px, ' + (cOffset.top - hOffset.top) + 'px, 0)');
 						}, 300);
 					}
 				} else {
@@ -855,7 +855,7 @@
 					years.classList.remove('mddtp-picker__years--invisible');
 					years.classList.add('zoomIn');
 					// scroll into the view
-					currentYear.scrollIntoViewIfNeeded();
+					currentYear.scrollIntoViewIfNeeded && currentYear.scrollIntoViewIfNeeded();
 				} else {
 					years.classList.add('zoomOut');
 					viewHolder.classList.remove('zoomOut');
@@ -1227,7 +1227,7 @@
 					    selectedMinute = document.getElementById(sMinute),
 					    cOffset = circle.getBoundingClientRect();
 
-					fakeNeedle.setAttribute('style', 'left:' + (cOffset.left - hOffset.left) + 'px;top:' + (cOffset.top - hOffset.top) + 'px');
+					fakeNeedle.setAttribute('style', 'transform: translate3d(' + (cOffset.left - hOffset.left) + 'px, ' + (cOffset.top - hOffset.top) + 'px, 0)');
 					needle.classList.remove(quick);
 					var select = divides;
 					if (select === 1) {
